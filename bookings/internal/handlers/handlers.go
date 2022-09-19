@@ -239,6 +239,31 @@ func (m *Repository) Majors(w http.ResponseWriter, r *http.Request) {
 	render.Template(w, r, "majors.page.tmpl", &models.TemplateData{})
 }
 
+// ItemPage renders the item page
+func (m *Repository) ItemPage(w http.ResponseWriter, r *http.Request) {
+	exploded := strings.Split(r.RequestURI, "/")
+
+	id, err := strconv.Atoi(exploded[2])
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
+
+	// get room from the database
+	room, err := m.DB.GetRoomByID(id)
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
+
+	data := make(map[string]interface{})
+	data["room"] = room
+
+	render.Template(w, r, "item.page.tmpl", &models.TemplateData{
+		Data: data,
+	})
+}
+
 // Availability renders the search availability page
 func (m *Repository) Availability(w http.ResponseWriter, r *http.Request) {
 	render.Template(w, r, "search-availability.page.tmpl", &models.TemplateData{})
