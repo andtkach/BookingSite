@@ -39,7 +39,6 @@ admin@admin.com | password
 
 # TODO
 1. Apply new UI template
-3. Make only one room page
 4. Make CRUD for rooms
 7. Create users admin UI
 
