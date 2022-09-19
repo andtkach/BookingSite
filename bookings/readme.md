@@ -41,9 +41,7 @@ admin@admin.com | password
 1. Apply new UI template
 3. Make only one room page
 4. Make CRUD for rooms
-6. Update to latest GO and to latest packages
 7. Create users admin UI
-9. Deploy to linode
 
 
 # Migrate database
