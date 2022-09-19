@@ -229,16 +229,6 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 
 }
 
-// Generals renders the room page
-func (m *Repository) Generals(w http.ResponseWriter, r *http.Request) {
-	render.Template(w, r, "generals.page.tmpl", &models.TemplateData{})
-}
-
-// Majors renders the room page
-func (m *Repository) Majors(w http.ResponseWriter, r *http.Request) {
-	render.Template(w, r, "majors.page.tmpl", &models.TemplateData{})
-}
-
 // ItemPage renders the item page
 func (m *Repository) ItemPage(w http.ResponseWriter, r *http.Request) {
 	exploded := strings.Split(r.RequestURI, "/")
