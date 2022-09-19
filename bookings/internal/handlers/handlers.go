@@ -3,6 +3,12 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
+	"log"
+	"net/http"
+	"strconv"
+	"strings"
+	"time"
+
 	"github.com/go-chi/chi"
 	"github.com/tsawler/bookings/internal/config"
 	"github.com/tsawler/bookings/internal/driver"
@@ -12,11 +18,6 @@ import (
 	"github.com/tsawler/bookings/internal/render"
 	"github.com/tsawler/bookings/internal/repository"
 	"github.com/tsawler/bookings/internal/repository/dbrepo"
-	"log"
-	"net/http"
-	"strconv"
-	"strings"
-	"time"
 )
 
 // Repo the repository used by the handlers
@@ -36,20 +37,12 @@ func NewRepo(a *config.AppConfig, db *driver.DB) *Repository {
 	}
 }
 
-// NewTestRepo creates a new repository
-func NewTestRepo(a *config.AppConfig) *Repository {
-	return &Repository{
-		App: a,
-		DB:  dbrepo.NewTestingsRepo(a),
-	}
-}
-
 // NewHandlers sets the repository for the handlers
 func NewHandlers(r *Repository) {
 	Repo = r
 }
 
-//Home is the home page handler
+// Home is the home page handler
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 	render.Template(w, r, "home.page.tmpl", &models.TemplateData{})
 }

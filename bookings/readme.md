@@ -42,7 +42,6 @@ admin@admin.com | password
 2. Configure SMTP server
 3. Make only one room page
 4. Make CRUD for rooms
-5. Delete all tests and test repo
 6. Update to latest GO and to latest packages
 7. Create users admin UI
 8. Add mail server command line parameters (MailGun)
