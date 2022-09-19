@@ -39,14 +39,17 @@ admin@admin.com | password
 
 # TODO
 1. Apply new UI template
-2. Configure SMTP server
 3. Make only one room page
 4. Make CRUD for rooms
 6. Update to latest GO and to latest packages
 7. Create users admin UI
-8. Add mail server command line parameters (MailGun)
 9. Deploy to linode
 
 
 # Migrate database
 soda migrate
+
+# SMTP for dev
+docker run -p 3000:80 -p 2525:25 -v ./smtp-data:/smtp4dev -d --name smtpdev rnwood/smtp4dev
+http://localhost:3000 
+Send-MailMessage -To “test@test.com” -From “admin@test.com”  -Subject “MyMail” -Body “This is the test” -SmtpServer "localhost" -Port "2525"

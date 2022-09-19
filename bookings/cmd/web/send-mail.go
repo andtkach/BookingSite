@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/tsawler/bookings/internal/models"
-	mail "github.com/xhit/go-simple-mail/v2"
 	"io/ioutil"
 	"log"
 	"strings"
 	"time"
+
+	"github.com/tsawler/bookings/internal/models"
+	mail "github.com/xhit/go-simple-mail/v2"
 )
 
 func listenForMail() {
@@ -22,7 +23,7 @@ func listenForMail() {
 func sendMsg(m models.MailData) {
 	server := mail.NewSMTPClient()
 	server.Host = "localhost"
-	server.Port = 1025
+	server.Port = 2525
 	server.KeepAlive = false
 	server.ConnectTimeout = 10 * time.Second
 	server.SendTimeout = 10 * time.Second
